@@ -18,7 +18,8 @@ git branch -M main
 git remote remove origin >/dev/null 2>&1 || true
 if gh repo view "$OWNER/$REPO" >/dev/null 2>&1; then
   git remote add origin "https://github.com/$OWNER/$REPO.git"
-  git push -q -u origin main
+  # force git to auth as the ACTIVE gh account (avoids cached osxkeychain creds for the wrong user)
+  git -c credential.helper= -c credential.helper='!gh auth git-credential' push -q -u origin main
   echo "  pushed to existing repo"
 else
   gh repo create "$OWNER/$REPO" --public --source=. --remote=origin --push
