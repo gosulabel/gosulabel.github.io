@@ -14,9 +14,10 @@ git add -A
 git commit -q -m "deploy $(date -u +%Y-%m-%dT%H:%MZ)" 2>/dev/null || echo "  (no changes to commit)"
 git branch -M main
 
-# 2) create repo (first run) or push to existing one
+# 2) point origin at THIS owner/repo (handles switching GitHub accounts)
+git remote remove origin >/dev/null 2>&1 || true
 if gh repo view "$OWNER/$REPO" >/dev/null 2>&1; then
-  git remote get-url origin >/dev/null 2>&1 || git remote add origin "https://github.com/$OWNER/$REPO.git"
+  git remote add origin "https://github.com/$OWNER/$REPO.git"
   git push -q -u origin main
   echo "  pushed to existing repo"
 else
