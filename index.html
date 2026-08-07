@@ -42,7 +42,18 @@
 
   .section{font-size:11px;letter-spacing:.14em;color:#9a9a9a;text-transform:uppercase;margin:26px 0 11px;text-align:left}
 
+  .player{
+    margin-top:30px;
+    border:1.5px solid #141414;
+    border-radius:13px;
+    overflow:hidden;
+    line-height:0;
+  }
+  .player iframe{display:block;width:100%}
+  .player + a.btn{margin-top:13px}
+
   .links{margin-top:30px;display:flex;flex-direction:column;gap:13px}
+  .player + .links,
   .links + .section{margin-top:26px}
   .btn{
     display:flex;align-items:center;justify-content:space-between;
@@ -69,9 +80,11 @@
   <main class="wrap">
     <img class="logo" src="gosu_logo.svg" alt="GOSU" />
 
-    <nav class="links">
-      <a class="btn" href="https://soundcloud.com/gosugosugosu/gosu-podcast-007-dani-labb" target="_blank" rel="noopener noreferrer">Podcast Dani Labb<span class="loc">SoundCloud</span></a>
-    </nav>
+    <div class="player">
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/gosugosugosu/gosu-podcast-007-dani-labb&color=%23141414&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+    </div>
+    <a class="btn" href="https://soundcloud.com/gosugosugosu/gosu-podcast-007-dani-labb" target="_blank" rel="noopener noreferrer">Podcast Dani Labb<span class="loc">SoundCloud</span></a>
 
     <div class="section">Shadows Hide EP</div>
     <nav class="links">
